@@ -1,0 +1,20 @@
+import java.util.*;
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n = sc.nextInt();
+        HashMap<String,String>phonebook=new HashMap<>();
+
+        for(int i=1;i<n;i++){
+            String name=sc.next();
+            String phone=sc.next();
+            phonebook.put(name,phone);
+        }
+        while (sc.hasNext()){
+            String query=sc.next();
+            if(phonebook.containsKey(query)){
+                System.out.println(query+"="+phonebook.get(query));
+            }
+        }
+    }}
