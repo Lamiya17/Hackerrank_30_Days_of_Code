@@ -1,0 +1,59 @@
+public class Person {
+    protected String firstname;
+    protected String lastname;
+    protected int idnumber;
+
+    public Person(String firstname,String lastname,int idnumber){
+        this.firstname=firstname;
+        this.lastname=lastname;
+        this.idnumber=idnumber;
+    }
+    public void printperson(){
+        System.out.println("firstname: "+firstname+", "+"latname: "+lastname+"id: "+idnumber);
+    }
+
+}
+
+
+public class Student extends Person{
+    private int[]score;
+    public Student(String firstname, String lastname,int idnumber, int[] score){
+        super(firstname, lastname, idnumber);
+        this.score=score;
+    }
+    public char calculate(){
+        int sum=0;
+        for(int scores:score){
+            sum+=scores;
+        }
+        int avg=sum/ score.length;
+        if(avg>=90) return 'O';
+        if(avg>=80) return 'E';
+        if(avg>=70) return 'A';
+        if(avg>=55) return 'P';
+        if(avg>=40) return 'D';
+        return 'T';
+    }
+
+}
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        String firstname= sc.next();
+        String lastname=sc.next();
+        int id= sc.nextInt();
+        int arrnum=sc.nextInt();
+        int [] arr=new int[arrnum];
+        for (int i =0;i<arr.length;i++){
+            arr[i]=sc.nextInt();
+        }
+        Student s=new Student(firstname,lastname,id,arr);
+        s.printperson();
+        System.out.println(s.calculate());
+
+    }}
+
