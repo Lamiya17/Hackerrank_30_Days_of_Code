@@ -1,0 +1,24 @@
+public class Calculator {
+    public static int pover(int n,int p) throws Exception{
+        if(n<0||n<p) {throw new Exception("n and p cant be negative");}
+        return (int)Math.pow(n,p);
+    }
+}
+
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+    Scanner sc= new Scanner(System.in);
+    int n= sc.nextInt();
+    int p=sc.nextInt();
+    Calculator c=new Calculator();
+    try{int result=c.pover(n,p);
+        System.out.println(result);
+    }catch (Exception e){
+        System.out.println(e.getMessage());
+    }
+
+    }}
