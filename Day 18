@@ -1,0 +1,48 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class Solution {
+    Stack<Character> stack =new Stack<>();
+    Queue<Character> queue=new LinkedList<>();
+    void pushCharacter(char ch){
+        stack.push(ch);
+    }
+    void enquecharacter(char ch){
+        queue.add(ch);
+    }
+    char popcharacter(){
+        return stack.pop();
+    }
+    char dequecharacter(){
+       return queue.remove();
+    }
+
+}
+
+import java.util.*;
+public class Main {
+
+    public static void main(String[] args) {
+    Scanner sc= new Scanner(System.in);
+    String s= sc.nextLine();
+    Solution sol=new Solution();
+    boolean ispolindrome=true;
+
+    for(char c:s.toCharArray()){
+        sol.pushCharacter(c);
+        sol.enquecharacter(c);
+    }
+    for(int i=0;i<s.length()/2;i++){
+        if(sol.popcharacter()!=sol.dequecharacter()){
+            ispolindrome=false;
+            break;
+        }
+    }
+    if(ispolindrome){
+        System.out.println("word is polindrome");
+    }
+    else{
+        System.out.println("word is not polindrome");
+    }
+    }}
