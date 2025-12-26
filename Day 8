@@ -16,5 +16,8 @@ public class Main {
             if(phonebook.containsKey(query)){
                 System.out.println(query+"="+phonebook.get(query));
             }
+            else{
+                System.out.println("not found");
+            }
         }
     }}
